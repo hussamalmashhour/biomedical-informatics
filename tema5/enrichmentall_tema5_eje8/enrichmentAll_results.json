@@ -1,0 +1,60 @@
+{
+  "parameters": {
+    "p_value_threshold": 0.05,
+    "min_annotations": 1,
+    "max_annotations": 500
+  },
+  "cluster_3_biological_process": [
+    {
+      "name": "alcohol metabolic process",
+      "pval": 0.00727802037845704,
+      "ngis": 2,
+      "ngo": 2
+    },
+    {
+      "name": "phosphorylation",
+      "pval": 0.00727802037845704,
+      "ngis": 2,
+      "ngo": 2
+    },
+    {
+      "name": "protein metabolic process",
+      "pval": 0.00727802037845704,
+      "ngis": 2,
+      "ngo": 2
+    },
+    {
+      "name": "small molecule metabolic process",
+      "pval": 0.00727802037845704,
+      "ngis": 2,
+      "ngo": 2
+    },
+    {
+      "name": "metabolic process",
+      "pval": 0.020679837639228205,
+      "ngis": 2,
+      "ngo": 3
+    }
+  ],
+  "cluster_3_cellular_component": [
+    {
+      "name": "cytoplasm",
+      "pval": 0.00727802037845704,
+      "ngis": 2,
+      "ngo": 2
+    }
+  ],
+  "random_genes_biological_process": [
+    {
+      "name": "glyoxylate cycle",
+      "pval": 0.020679837639228205,
+      "ngis": 2,
+      "ngo": 3
+    }
+  ],
+  "summary": {
+    "c3_bp_terms": 5,
+    "c3_cc_terms": 1,
+    "random_bp_terms": 1
+  }
+}

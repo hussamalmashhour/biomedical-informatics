@@ -1,0 +1,95 @@
+{
+  "test_case_1_single_gene": {
+    "YER065C": {
+      "start": "285241",
+      "end": "286914",
+      "name": "ICL1",
+      "id": "S000000867",
+      "strand": "+",
+      "seqname": "chrV"
+    }
+  },
+  "test_case_2_multiple_genes": {
+    "YPR184W": {
+      "start": "202",
+      "end": "1106",
+      "name": "GLG1",
+      "id": "S000002419",
+      "strand": "-",
+      "seqname": "chrI"
+    },
+    "YLR312C": {
+      "start": "475431",
+      "end": "475999",
+      "name": "RPL26B",
+      "id": "S000004103",
+      "strand": "+",
+      "seqname": "chrXII"
+    },
+    "YML054C": {
+      "start": "376563",
+      "end": "378230",
+      "name": "CRH1",
+      "id": "S000004560",
+      "strand": "+",
+      "seqname": "chrXIII"
+    },
+    "YBR116C": {
+      "start": "644463",
+      "end": "645684",
+      "name": "VPS55",
+      "id": "S000000590",
+      "strand": "-",
+      "seqname": "chrII"
+    },
+    "YKL187C": {
+      "start": "671501",
+      "end": "672645",
+      "name": "TIP1",
+      "id": "S000001762",
+      "strand": "+",
+      "seqname": "chrXI"
+    },
+    "YLR267W": {
+      "start": "689485",
+      "end": "691230",
+      "name": "PEP4",
+      "id": "S000004028",
+      "strand": "-",
+      "seqname": "chrXII"
+    },
+    "YEL012W": {
+      "start": "3743",
+      "end": "5559",
+      "name": "GLC3",
+      "id": "S000000100",
+      "strand": "+",
+      "seqname": "chrI"
+    },
+    "YOL084W": {
+      "start": "390370",
+      "end": "392260",
+      "name": "PHM8",
+      "id": "S000005343",
+      "strand": "-",
+      "seqname": "chrXV"
+    },
+    "YJL045W": {
+      "start": "410270",
+      "end": "411542",
+      "name": "SIP4",
+      "id": "S000003635",
+      "strand": "+",
+      "seqname": "chrX"
+    },
+    "YJR095W": {
+      "start": "666789",
+      "end": "668234",
+      "name": "SFC1",
+      "id": "S000003869",
+      "strand": "-",
+      "seqname": "chrX"
+    }
+  },
+  "total_genes_found": 10
+}

@@ -1,0 +1,70 @@
+# GO ontology for testing (subset)
+[Term]
+id: GO:0006066
+name: alcohol metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0006064
+name: gluconeogenesis
+namespace: biological_process
+
+[Term]
+id: GO:0015968
+name: glyoxylate cycle
+namespace: biological_process
+
+[Term]
+id: GO:0008152
+name: metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0016310
+name: phosphorylation
+namespace: biological_process
+
+[Term]
+id: GO:0019538
+name: protein metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0044281
+name: small molecule metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0042026
+name: protein refolding
+namespace: biological_process
+
+[Term]
+id: GO:0005737
+name: cytoplasm
+namespace: cellular_component
+
+[Term]
+id: GO:0005739
+name: mitochondrion
+namespace: cellular_component
+
+[Term]
+id: GO:0005634
+name: nucleus
+namespace: cellular_component
+
+[Term]
+id: GO:0003674
+name: molecular_function
+namespace: molecular_function
+
+[Term]
+id: GO:0003824
+name: catalytic activity
+namespace: molecular_function
+
+[Term]
+id: GO:0005524
+name: ATP binding
+namespace: molecular_function

@@ -1,0 +1,89 @@
+# file: gene_ontology.obo
+# GO version Feb 11, 2016
+# This file represents a subset of the Gene Ontology (GO) for testing
+# Format: OBO 1.2
+
+[Term]
+id: GO:0006995
+name: cellular respiration
+namespace: biological_process
+
+[Term]
+id: GO:0007265
+name: Ras protein signal transduction
+namespace: biological_process
+
+[Term]
+id: GO:0008152
+name: metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0009635
+name: response to herb
+namespace: biological_process
+
+[Term]
+id: GO:0015968
+name: glyoxylate cycle
+namespace: biological_process
+
+[Term]
+id: GO:0016310
+name: phosphorylation
+namespace: biological_process
+
+[Term]
+id: GO:0019336
+name: phenol-containing compound metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0030165
+name: PDZ domain binding
+namespace: biological_process
+
+[Term]
+id: GO:0051246
+name: regulation of protein metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0061845
+name: blood group antigen biosynthetic process
+namespace: biological_process
+
+[Term]
+id: GO:0019538
+name: protein metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0007242
+name: intracellular signaling cascade
+namespace: biological_process
+
+[Term]
+id: GO:0019745
+name: cell-substrate adhesion
+namespace: biological_process
+
+[Term]
+id: GO:0031034
+name: myosin II filament assembly
+namespace: biological_process
+
+[Term]
+id: GO:0032471
+name: negative regulation of endoplasmic reticulum calcium ion concentration
+namespace: biological_process
+
+[Term]
+id: GO:0044281
+name: small molecule metabolic process
+namespace: biological_process
+
+[Term]
+id: GO:0070589
+name: hydrogen sulfide biosynthetic process
+namespace: biological_process

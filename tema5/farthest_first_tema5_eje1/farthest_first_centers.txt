@@ -1,0 +1,10 @@
+Farthest-First Clustering Results
+========================================
+
+k = 3
+Initial center: [ 3 20]
+
+Selected centers:
+  0: [ 3. 20.]
+  1: [24. 13.]
+  2: [11.  2.]

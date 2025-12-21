@@ -1,0 +1,11 @@
+Text: $aaaaaabmnnps
+Symbol: n
+First occurrence: 9
+All first occurrences:
+$: 0
+a: 1
+b: 7
+m: 8
+n: 9
+p: 11
+s: 12

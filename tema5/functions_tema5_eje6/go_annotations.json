@@ -1,0 +1,42 @@
+{
+  "test_case_1_single_gene": {
+    "S000000867": [
+      "glyoxylate cycle",
+      "metabolic process",
+      "small molecule metabolic process"
+    ]
+  },
+  "test_case_2_multiple_genes": {
+    "S000002419": [
+      "phosphorylation"
+    ],
+    "S000004103": [
+      "protein metabolic process"
+    ],
+    "S000004560": [
+      "Ras protein signal transduction"
+    ],
+    "S000000590": [
+      "regulation of protein metabolic process"
+    ],
+    "S000004028": [
+      "protein metabolic process"
+    ],
+    "S000000100": [
+      "metabolic process"
+    ],
+    "S000005343": [
+      "small molecule metabolic process"
+    ],
+    "S000003635": [
+      "intracellular signaling cascade"
+    ],
+    "S000003869": [
+      "hydrogen sulfide biosynthetic process"
+    ]
+  },
+  "summary": {
+    "genes_with_annotations": 9,
+    "total_unique_terms": 8
+  }
+}

@@ -1,0 +1,22 @@
+Gene Set Enrichment Analysis - Fisher's Exact Test Results
+======================================================================
+
+TEST CASE 1: Example Data
+----------------------------------------------------------------------
+Input: ids={30 genes}, goids={40 genes}, n=200
+Contingency Table: [[10, 30], [20, 140]]
+Odds Ratio: 2.333333
+P-value: 0.046325
+Expected: approx 0.046325
+Match: True
+
+TEST CASE 2: Real Diauxic Shift Genes
+----------------------------------------------------------------------
+Input: dgenes={229 genes (from dgenes.txt)}, GO:0006066={5 genes}, n=6034
+Contingency Table: [[1, 4], [228, 5801]]
+Odds Ratio: 6.360746
+P-value: 0.175945
+Significant (p < 0.05): False
+
+Genes in intersection: ['S000000826']
+Proportion enriched: 1/5 GO genes = 20.0%

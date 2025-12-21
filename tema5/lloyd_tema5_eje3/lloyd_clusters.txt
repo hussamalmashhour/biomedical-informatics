@@ -1,0 +1,20 @@
+Lloyd's Algorithm (k-means) Results
+==================================================
+
+Example 1: Random initialization
+Final centers:
+[[ 3.         19.        ]
+ [ 4.5        22.5       ]
+ [17.25        6.83333333]]
+Cluster assignments: [0 1 1 0 1 1 2 2 2 2 2 2 2 2 2 2 2 2]
+
+Example 2: Explicit initialization
+Initial centers:
+[[ 3. 20.]
+ [24. 13.]
+ [14.  2.]]
+Final centers:
+[[ 4.         21.33333333]
+ [21.83333333 11.16666667]
+ [12.66666667  2.5       ]]
+Cluster assignments: [0 0 0 0 0 0 1 1 1 1 1 1 2 2 2 2 2 2]

@@ -1,0 +1,45 @@
+Comprehensive Gene Set Enrichment Analysis Results
+======================================================================
+
+CLUSTER 3 - BIOLOGICAL PROCESS
+----------------------------------------------------------------------
+Enriched terms: 5
+
+1. alcohol metabolic process
+   p-value: 7.278020e-03
+   overlap: 2/2
+
+2. phosphorylation
+   p-value: 7.278020e-03
+   overlap: 2/2
+
+3. protein metabolic process
+   p-value: 7.278020e-03
+   overlap: 2/2
+
+4. small molecule metabolic process
+   p-value: 7.278020e-03
+   overlap: 2/2
+
+5. metabolic process
+   p-value: 2.067984e-02
+   overlap: 2/3
+
+
+CLUSTER 3 - CELLULAR COMPONENT
+----------------------------------------------------------------------
+Enriched terms: 1
+
+1. cytoplasm
+   p-value: 7.278020e-03
+   overlap: 2/2
+
+
+RANDOM GENES - BIOLOGICAL PROCESS
+----------------------------------------------------------------------
+Enriched terms: 1
+
+1. glyoxylate cycle
+   p-value: 2.067984e-02
+   overlap: 2/3
+

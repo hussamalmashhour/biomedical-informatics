@@ -1,0 +1,25 @@
+# This file is in the Genome Feature Format described at http://www.sanger.ac.uk/Software/formats/GFF/GFF_Spec_v2.txt
+# SGD genome sequence version R64-2-1 (chrI through chrXVI, plus chrMito)
+# The centromere coordinates are approximate based on the kinetochore binding sites
+# The columns of the annotation file are as described below.
+# Column 1: seqname - The name of the sequence/chromosome
+# Column 2: source - The program that generated this feature
+# Column 3: feature - The name of this type of feature (e.g. ORF, transposon_end, repeat_region)
+# Column 4: start - The start coordinate of the feature
+# Column 5: end - The end coordinate of the feature
+# Column 6: score - The score value; "." for ungapped alignment, and an integer for gapped alignment
+# Column 7: strand - Valid entries include '+', '-', or '.'
+# Column 8: frame - Valid entries are 0, 1, or 2
+# Column 9: group - Semicolon-separated list of tag-value pairs; special qualifiers like 'Note' can be used
+#
+chrV	SGD	ORF	285241	286914	.	+	0	ID=YER065C;Name=ICL1;SGD=S000000867;dbxref=SGD:S000000867;Note=Isocitrate lyase
+chrI	SGD	ORF	202	1106	.	-	0	ID=YPR184W;Name=GLG1;SGD=S000002419;dbxref=SGD:S000002419;Note=Glycogen synthase-like
+chrXII	SGD	ORF	475431	475999	.	+	0	ID=YLR312C;Name=RPL26B;SGD=S000004103;dbxref=SGD:S000004103;Note=Ribosomal protein L26B
+chrXIII	SGD	ORF	376563	378230	.	+	0	ID=YML054C;Name=CRH1;SGD=S000004560;dbxref=SGD:S000004560;Note=Chitin transglycosidase
+chrII	SGD	ORF	644463	645684	.	-	0	ID=YBR116C;Name=VPS55;SGD=S000000590;dbxref=SGD:S000000590;Note=Vacuolar protein sorting
+chrXI	SGD	ORF	671501	672645	.	+	0	ID=YKL187C;Name=TIP1;SGD=S000001762;dbxref=SGD:S000001762;Note=Tail interacting protein
+chrXII	SGD	ORF	689485	691230	.	-	0	ID=YLR267W;Name=PEP4;SGD=S000004028;dbxref=SGD:S000004028;Note=Proteinase A
+chrI	SGD	ORF	3743	5559	.	+	0	ID=YEL012W;Name=GLC3;SGD=S000000100;dbxref=SGD:S000000100;Note=Glucosidase
+chrXV	SGD	ORF	390370	392260	.	-	0	ID=YOL084W;Name=PHM8;SGD=S000005343;dbxref=SGD:S000005343;Note=Phosphatidylcholine-hydrolyzing
+chrX	SGD	ORF	410270	411542	.	+	0	ID=YJL045W;Name=SIP4;SGD=S000003635;dbxref=SGD:S000003635;Note=Signal-independent induction
+chrX	SGD	ORF	666789	668234	.	-	0	ID=YJR095W;Name=SFC1;SGD=S000003869;dbxref=SGD:S000003869;Note=Mitochondrial succinate
