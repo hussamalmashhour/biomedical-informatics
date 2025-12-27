@@ -45,36 +45,43 @@ def read_fasta_sequences(path):
 
 
 def allMutations(seq, k, d):
-    """Count unique k-mers in seq including all mutations with up to d mismatches.
-    
-    Args:
-        seq: DNA sequence string
-        k: k-mer length
-        d: maximum allowed mismatches per k-mer
-    
-    Returns:
-        Number of unique k-mers (including all mutations).
-    
-    Example:
-        seq = "ACGTACGT"
-        k = 3
-        d = 1
-        Result: total unique 3-mers within 1 mismatch from any 3-mer in seq
     """
-    letters = "ACGT"
-    unique_kmers = set()
+    Calculate all possible k-mers from `seq`, including those not explicitly present,
+    considering up to `d` point mutations per k-mer.
+
+    Parameters:
+    -----------
+    seq : str
+        DNA sequence (contains only A, C, G, T)
+    k : int
+        Length of k-mers
+    d : int
+        Maximum number of mismatches allowed
+
+    Returns:
+    --------
+    int
+        Number of unique k-mers possible (including mutations)
+    """
+    # Handle edge case
+    if k > len(seq):
+        return 0
     
-    # Extract all k-mers from the sequence
+    # Initialize an empty set to store unique k-mers
+    all_kmer_mutations = set()
+    
+    # Slide a window of length k over seq to extract each k-mer
     for i in range(len(seq) - k + 1):
-        kmer = seq[i:i + k].upper()
+        current_kmer = seq[i:i + k].upper()
         
-        # Generate all mutations (including the original) up to d mismatches
-        mutated_kmers = mutationsEqualOrLess(kmer, letters, d)
+        # Get all possible mutations of that k-mer with up to d mismatches
+        mutations_set = mutationsEqualOrLess(current_kmer, d, letters="ACGT")
         
-        # Add all mutations to the set
-        unique_kmers.update(mutated_kmers)
+        # Add all returned mutations to all_kmer_mutations set
+        all_kmer_mutations.update(mutations_set)
     
-    return len(unique_kmers)
+    # Return the length of all_kmer_mutations
+    return len(all_kmer_mutations)
 
 
 def test_examples():

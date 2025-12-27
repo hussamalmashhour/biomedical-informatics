@@ -21,12 +21,16 @@ def rotations(text):
 
 
 def bwt(text):
-    """Compute the Burrows–Wheeler Transform of text."""
+    """Compute the Burrows–Wheeler Transform of text.
+    
+    Returns:
+        list: BWT as list of characters (e.g., ['s', 'm', 'n', ...])
+    """
     validate_text(text)
     rots = rotations(text)
     rots.sort()  # lexicographic order
     last_column = [r[-1] for r in rots]
-    return ''.join(last_column), rots
+    return last_column
 
 
 def print_rotations(rots):
@@ -36,16 +40,22 @@ def print_rotations(rots):
 
 def main():
     text = "panamabananas$"
-    bwt_str, rots = bwt(text)
+    bwt_result = bwt(text)
 
     print("Text:", text)
-    print("BWT:", bwt_str)
-    print("\nSorted rotations (for verification):")
-    print_rotations(rots)
+    print("BWT (as list):", bwt_result)
+    print("BWT (as string):", ''.join(bwt_result))
+    
+    # Show first few sorted rotations for verification
+    rots = rotations(text)
+    rots.sort()
+    print("\nFirst 5 sorted rotations (for verification):")
+    for r in rots[:5]:
+        print(f"  {r} → last char: '{r[-1]}'")
 
     out_path = os.path.join(os.path.dirname(__file__), 'bwt.txt')
     with open(out_path, 'w') as f:
-        f.write(bwt_str)
+        f.write(''.join(bwt_result))
     print(f"\nWritten BWT to {out_path}")
 
 

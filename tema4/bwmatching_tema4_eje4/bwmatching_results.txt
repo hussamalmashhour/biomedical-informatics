@@ -1,6 +1,5 @@
+Pattern: cgga
+Rows: [205, 206, 207]
+
 Pattern: ana
 Rows: [3, 4, 5]
-
-Pattern: CGGA
-Rows: [447, 448, 449]
-

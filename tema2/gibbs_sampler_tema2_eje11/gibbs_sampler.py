@@ -112,8 +112,8 @@ def random_kmer(seq, k):
 # Gibbs Sampler
 # ------------------------------
 
-def gibbsSampler(dna, k, N):
-    """Run Gibbs sampling for motifs."""
+def gibbsSampler_core(dna, k, N):
+    """Run Gibbs sampling for motifs (returns list of motifs)."""
     t = len(dna)
     motifs = [random_kmer(seq, k) for seq in dna]
     bestMotifs = list(motifs)
@@ -145,17 +145,43 @@ def gibbsSampler(dna, k, N):
     return bestMotifs
 
 
+def gibbsSampler(dna, k, N, num_runs=50):
+    """Run Gibbs sampling and return consensus sequence.
+    
+    Args:
+        dna: list of DNA sequences
+        k: motif length
+        N: iterations per run
+        num_runs: number of times to run algorithm
+    
+    Returns:
+        Consensus sequence (string) of best motifs found.
+    """
+    best_motifs = None
+    best_score = float('inf')
+    
+    for _ in range(num_runs):
+        motifs = gibbsSampler_core(dna, k, N)
+        sc = score(motifs)
+        if sc < best_score:
+            best_score = sc
+            best_motifs = motifs
+    
+    # Return consensus string, not list
+    return consensus(best_motifs)
+
+
 def run_multiple(dna, k, N, runs):
-    """Run gibbsSampler multiple times and keep the best motifs."""
+    """Run gibbsSampler multiple times and return consensus with score."""
     best = None
     best_score = float('inf')
     for r in range(runs):
-        motifs = gibbsSampler(dna, k, N)
+        motifs = gibbsSampler_core(dna, k, N)
         sc = score(motifs)
         if sc < best_score:
             best_score = sc
             best = motifs
-    return best, best_score
+    return consensus(best), best_score
 
 
 # ------------------------------
@@ -164,7 +190,7 @@ def run_multiple(dna, k, N, runs):
 
 def run_example(folder):
     """Example with k=7, N=100, 50 runs. Expects consensus GATTACA."""
-    path = os.path.join(folder, '..', 'secuencias.txt')
+    path = os.path.join(folder, 'secuencias.txt')
     if not os.path.exists(path):
         print(f"Example skipped: file not found {path}\n")
         return
@@ -172,20 +198,17 @@ def run_example(folder):
     k = 7
     N = 100
     runs = 50
-    motifs, sc = run_multiple(dna, k, N, runs)
+    cons, sc = run_multiple(dna, k, N, runs)
     print("Example (secuencias.txt):")
     print(f"  k={k}, N={N}, runs={runs}")
     print(f"  Score: {sc}")
-    print(f"  Consensus: {consensus(motifs)} (expected GATTACA)")
-    print("  Motifs:")
-    for m in motifs:
-        print(f"    {m}")
+    print(f"  Consensus: {cons} (expected GATTACA)")
     print()
 
 
 def run_test_secuencias2(folder):
     """Test with secuencias2.txt: k=8, N=100, runs=50."""
-    path = os.path.join(folder, '..', 'secuencias2.txt')
+    path = os.path.join(folder, 'secuencias2.txt')
     if not os.path.exists(path):
         print(f"Test skipped: file not found {path}\n")
         return
@@ -193,13 +216,11 @@ def run_test_secuencias2(folder):
     k = 8
     N = 100
     runs = 50
-    motifs, sc = run_multiple(dna, k, N, runs)
+    cons, sc = run_multiple(dna, k, N, runs)
     print("Test (secuencias2.txt):")
     print(f"  k={k}, N={N}, runs={runs}")
     print(f"  Score: {sc}")
-    print("  Motifs:")
-    for m in motifs:
-        print(f"    {m}")
+    print(f"  Consensus: {cons}")
     print()
 
 

@@ -24,12 +24,22 @@ def validate_text(text):
 def read_fasta_first_sequence(path):
     """Read the first sequence from a FASTA-like file (ignores headers)."""
     seq = []
+    in_first_sequence = False
     with open(path, 'r') as f:
         for line in f:
             line = line.strip()
-            if not line or line.startswith('>'):
+            if not line:
                 continue
-            seq.append(line)
+            if line.startswith('>'):
+                if in_first_sequence:
+                    # We've hit the second sequence header, stop
+                    break
+                else:
+                    # This is the first header, start reading
+                    in_first_sequence = True
+                    continue
+            if in_first_sequence:
+                seq.append(line)
     return ''.join(seq)
 
 # ------------------------------------------------------------
@@ -130,10 +140,10 @@ def main():
 
     # Genome test: Vibrio cholerae oriC (first sequence in provided file)
     folder = os.path.dirname(__file__)
-    oric_path = os.path.join(folder, '..', 'oric.txt')
+    oric_path = os.path.join(folder, 'oric.txt')
     if os.path.exists(oric_path):
-        seq = read_fasta_first_sequence(oric_path).upper() + '$'
-        pattern2 = "CGGA"
+        seq = read_fasta_first_sequence(oric_path) + '$'  # Keep original case (lowercase)
+        pattern2 = "cgga"  # Pattern in lowercase as specified in exercise
         last_col2 = bwt(seq)
         lf2 = build_first_to_last(last_col2)
         rows2 = bwMatching(last_col2, lf2, pattern2)

@@ -63,6 +63,47 @@ def _compute_degrees(graph):
         outdeg.setdefault(n, 0)
     return indeg, outdeg
 
+
+def balanced(graph):
+    """Check if directed graph is balanced (Eulerian).
+    
+    A graph is balanced if indegree = outdegree for all nodes.
+    
+    Args:
+        graph: Adjacency dict {node: [neighbors]}
+    
+    Returns:
+        True if balanced, False otherwise.
+    """
+    indeg, outdeg = _compute_degrees(graph)
+    for node in set(indeg) | set(outdeg):
+        if indeg[node] != outdeg[node]:
+            return False
+    return True
+
+
+def eulerianCycle(graph):
+    """Find Eulerian cycle in a balanced directed graph.
+    
+    Uses Hierholzer's algorithm. Assumes graph has Eulerian cycle.
+    
+    Args:
+        graph: Adjacency dict {node: [neighbors]}
+    
+    Returns:
+        List of nodes forming Eulerian cycle.
+    """
+    if not graph:
+        return []
+    
+    # Check if balanced
+    if not balanced(graph):
+        raise ValueError("Graph must be balanced for Eulerian cycle")
+    
+    # Use find_eulerian_path which handles both cycles and paths
+    path = find_eulerian_path(graph)
+    return path
+
 # ---------------------------------------------------------------------------
 # Eulerian path (Hierholzer)
 # ---------------------------------------------------------------------------

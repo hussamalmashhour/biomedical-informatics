@@ -74,24 +74,29 @@ def fetch_text_from_path(path: str) -> str:
 
 
 def GCcontent(path: str) -> float:
-    """Compute average GC fraction across all sequences in FASTA at `path`.
+    """Compute GC fraction across a FASTA at `path`.
 
-    Returns a float fraction between 0 and 1 (average of per-sequence GC
-    fractions). If no sequences found, returns 0.0.
+    Returns a float fraction between 0 and 1. Ambiguous bases are ignored
+    for both numerator and denominator. Uses a weighted average across all
+    sequences (i.e., total (G+C) divided by total (A+C+G+T)). If no valid
+    bases found, returns 0.0.
     """
     text = fetch_text_from_path(path)
     seqs = read_fasta_sequences_from_text(text)
     if not seqs:
         return 0.0
-    fractions = []
+    total_g = total_c = total_a = total_t = 0
     for s in seqs:
-        # keep only A/C/G/T letters for GC calculation
-        filtered = ''.join(re.findall(r'[ACGTacgt]', s))
-        frac = gc_fraction_of_sequence(filtered)
-        fractions.append(frac)
-    if not fractions:
+        s = s.upper()
+        # count only A/C/G/T
+        total_g += s.count('G')
+        total_c += s.count('C')
+        total_a += s.count('A')
+        total_t += s.count('T')
+    denom = total_a + total_t + total_g + total_c
+    if denom == 0:
         return 0.0
-    return sum(fractions) / len(fractions)
+    return (total_g + total_c) / denom
 
 
 def main(argv=None) -> int:
@@ -104,6 +109,8 @@ def main(argv=None) -> int:
     val = GCcontent(path)
     print('Average GC fraction (0..1):', val)
     print('Average GC percentage:', f'{val*100:.6f}%')
+    # Print the result for automated testing (last line)
+    print(val)
     return 0
 
 

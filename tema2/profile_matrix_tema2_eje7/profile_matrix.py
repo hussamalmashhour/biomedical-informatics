@@ -118,7 +118,7 @@ def main():
 
     # Profile for nfkbMotifs.txt (Laplace = True)
     folder = os.path.dirname(__file__)
-    nfkb_path = os.path.join(folder, '..', 'nfkbMotifs.txt')
+    nfkb_path = os.path.join(folder, 'nfkbMotifs.txt')
     if os.path.exists(nfkb_path):
         motifs = read_motifs(nfkb_path)
         prof = profile(motifs, Laplace=True)

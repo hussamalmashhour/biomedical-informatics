@@ -169,7 +169,7 @@ def test_example():
 def test_seqs4mut():
     """Test with seqs4mut.txt (k=15)."""
     folder = os.path.dirname(__file__)
-    path = os.path.join(folder, '..', 'seqs4mut.txt')
+    path = os.path.join(folder, 'seqs4mut.txt')
     if os.path.exists(path):
         sequences = read_sequences(path)
         k = 15

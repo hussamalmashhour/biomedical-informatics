@@ -60,18 +60,25 @@ def countKmersV2(seq, d, k, n):
     letters = "ACGT"
     kmer_counts = {}
     
+    # Step 1: Slide through sequence extracting k-mers
     for i in range(len(seq) - k + 1):
         kmer = seq[i:i+k].upper()
-        mutated_kmers = mutationsEqualOrLess(kmer, letters, d)
         
+        # Step 2: Get all mutations (including original) up to d mismatches
+        mutated_kmers = mutationsEqualOrLess(kmer, d, letters)
+        
+        # Step 3: For each mutated version, count both it and its reverse complement
         for m_kmer in mutated_kmers:
+            # Count the k-mer itself
+            kmer_counts[m_kmer] = kmer_counts.get(m_kmer, 0) + 1
+            
+            # Also count its reverse complement
             rc_kmer = reverse_complement(m_kmer)
-            # Count k-mer and its reverse complement as the same motif
-            canonical = min(m_kmer, rc_kmer)
-            kmer_counts[canonical] = kmer_counts.get(canonical, 0) + 1
+            kmer_counts[rc_kmer] = kmer_counts.get(rc_kmer, 0) + 1
     
-    # Filter to keep only k-mers with frequency >= n
+    # Step 4: Filter to keep only k-mers with frequency >= n
     filtered_counts = {kmer: count for kmer, count in kmer_counts.items() if count >= n}
+    
     return filtered_counts
 
 

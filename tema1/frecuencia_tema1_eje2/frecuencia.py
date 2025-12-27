@@ -67,6 +67,10 @@ def main() -> int:
         print(f"{base}: {counts[base]} ({freqs[base]:.6f})")
 
     print(f"\nSum of reported frequencies: {sum(freqs.values()):.6f}")
+    
+    # Print the result dictionary for automated testing (last line)
+    print(freqs)
+    
     return 0
 
 

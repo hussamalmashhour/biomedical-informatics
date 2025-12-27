@@ -71,7 +71,7 @@ def Pr(profile, motif):
 
 def main():
     folder = os.path.dirname(__file__)
-    nfkb_path = os.path.join(folder, '..', 'nfkbMotifs.txt')
+    nfkb_path = os.path.join(folder, 'nfkbMotifs.txt')
 
     motifs = read_motifs(nfkb_path)
     prof = build_profile_raw(motifs)

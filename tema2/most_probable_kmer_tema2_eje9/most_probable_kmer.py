@@ -113,7 +113,7 @@ def run_example():
 def run_nfkb():
     """Run the NF-κB test using nfkbMotifs.txt (no Laplace in Pr)."""
     folder = os.path.dirname(__file__)
-    nfkb_path = os.path.join(folder, '..', 'nfkbMotifs.txt')
+    nfkb_path = os.path.join(folder, 'nfkbMotifs.txt')
     motifs = read_motifs(nfkb_path)
     # Keep raw frequencies unless you want smoothing; here stay raw.
     profile = build_profile(motifs, laplace=False)
