@@ -81,7 +81,7 @@ def parse_gaf(gaf_file, ids, go_map):
     GAF format (17 tab-delimited columns):
     1. DB
     2. DB_Object_ID (SGD ID like S000000867)
-    3. DB_Object_Symbol (gene name like YER065C)
+    3. DB_Object_Symbol (gene name like ICL1)
     4. Qualifier
     5. GO_ID (like GO:0015968)
     6. DB:Reference
@@ -97,7 +97,8 @@ def parse_gaf(gaf_file, ids, go_map):
         go_map: dict mapping GO IDs to term names
     
     Returns:
-        dict mapping SGD IDs to sets of GO term names
+        tuple: (dict mapping SGD IDs to sets of GO term names, 
+                dict mapping gene symbols to SGD IDs)
     """
     # Convert to set for O(1) lookup
     id_set = set(ids) if not isinstance(ids, set) else ids
@@ -105,9 +106,12 @@ def parse_gaf(gaf_file, ids, go_map):
     # Results dict: SGD ID → set of GO term names
     results = {}
     
+    # Track gene symbols to SGD ID mapping
+    gene_to_sgd = {}
+    
     if not os.path.exists(gaf_file):
         print(f"Warning: GAF file not found: {gaf_file}")
-        return results
+        return results, gene_to_sgd
     
     with open(gaf_file, 'r') as f:
         for line in f:
@@ -132,12 +136,40 @@ def parse_gaf(gaf_file, ids, go_map):
             evidence_code = fields[6]
             aspect = fields[8]
             
-            # Filter: only Biological Process (P), exclude electronic annotations (IEA)
-            if aspect != 'P' or evidence_code == 'IEA':
+            # Column 10 contains synonyms (may include systematic name like YER065C)
+            synonyms = fields[10] if len(fields) > 10 else ''
+            
+            # Check if gene is in input list (check both gene_symbol and synonyms)
+            gene_match = False
+            if gene_symbol in id_set:
+                gene_match = True
+            else:
+                # Check if any synonym matches
+                for syn in synonyms.split('|'):
+                    if syn.strip() in id_set:
+                        gene_match = True
+                        break
+            
+            # Track gene symbol to SGD ID mapping
+            if gene_match:
+                # Map all synonyms to SGD ID
+                for syn in synonyms.split('|'):
+                    syn = syn.strip()
+                    if syn in id_set:
+                        gene_to_sgd[syn] = sgd_id
+                if gene_symbol in id_set:
+                    gene_to_sgd[gene_symbol] = sgd_id
+            
+            # Filter: gene must be in input list
+            if not gene_match:
                 continue
             
-            # Filter: gene symbol must be in input list
-            if gene_symbol not in id_set:
+            # Initialize empty set for this gene if first time
+            if sgd_id not in results:
+                results[sgd_id] = set()
+            
+            # Filter: only Biological Process (P), exclude electronic annotations (IEA)
+            if aspect != 'P' or evidence_code == 'IEA':
                 continue
             
             # Lookup GO term name
@@ -147,13 +179,17 @@ def parse_gaf(gaf_file, ids, go_map):
             
             go_name = go_map[go_id]
             
-            # Add to results
-            if sgd_id not in results:
-                results[sgd_id] = set()
-            
+            # Add GO term to results
             results[sgd_id].add(go_name)
     
-    return results
+    # Ensure all input genes have an entry (even if empty set)
+    for gene_symbol in id_set:
+        if gene_symbol in gene_to_sgd:
+            sgd_id = gene_to_sgd[gene_symbol]
+            if sgd_id not in results:
+                results[sgd_id] = set()
+    
+    return results, gene_to_sgd
 
 
 def functions(ids, go_obo_file='go.obo', gaf_file='gene_association.sgd'):
@@ -183,7 +219,46 @@ def functions(ids, go_obo_file='go.obo', gaf_file='gene_association.sgd'):
     
     # Parse GAF file
     print(f"Parsing GAF file: {os.path.basename(gaf_file)}...")
-    results = parse_gaf(gaf_file, ids, go_map)
+    results, gene_to_sgd = parse_gaf(gaf_file, ids, go_map)
+    
+    # For genes not found in GAF, we need to use GFF to get their SGD IDs
+    missing_genes = set(ids) - set(gene_to_sgd.keys())
+    
+    if missing_genes:
+        gff_file = os.path.join(os.path.dirname(__file__), '..', 'annotations_tema5_eje5', 
+                                'saccharomyces_cerevisiae_R64-2-1_20150113.gff')
+        if os.path.exists(gff_file):
+            print(f"  Looking up SGD IDs for {len(missing_genes)} genes not in GAF...")
+            # Parse GFF to get SGD IDs for missing genes
+            with open(gff_file, 'r') as f:
+                for line in f:
+                    if line.startswith('#'):
+                        continue
+                    fields = line.rstrip('\n').split('\t')
+                    if len(fields) < 9:
+                        continue
+                    feature = fields[2]
+                    if feature != 'gene':
+                        continue
+                    attrs_str = fields[8]
+                    attrs = {}
+                    for pair in attrs_str.split(';'):
+                        if '=' in pair:
+                            key, value = pair.split('=', 1)
+                            attrs[key] = value
+                    
+                    # Check if this is one of our missing genes
+                    gene_name = attrs.get('Name', '')
+                    if gene_name in missing_genes:
+                        # Extract SGD ID from dbxref field
+                        dbxref = attrs.get('dbxref', '')
+                        if dbxref.startswith('SGD:'):
+                            sgd_id = dbxref.split('SGD:')[1]
+                            # Add empty set for this gene
+                            if sgd_id not in results:
+                                results[sgd_id] = set()
+                                print(f"    Added {gene_name} ({sgd_id}) with empty set")
+    
     print(f"  Found annotations for {len(results)} genes\n")
     
     return results

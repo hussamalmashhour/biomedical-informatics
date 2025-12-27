@@ -1,0 +1,8 @@
+Exercise 3 - Lloyd's Algorithm (K-means)
+======================================================================
+
+Submission URL:
+https://cpg3.der.usal.es/eval/test?session=5&exercise=3&response=[0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,2,2]&id=Z2256773H
+
+Cluster assignments:
+[0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]

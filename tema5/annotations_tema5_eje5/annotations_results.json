@@ -4,91 +4,69 @@
       "start": "285241",
       "end": "286914",
       "name": "ICL1",
-      "id": "S000000867",
-      "strand": "+",
-      "seqname": "chrV"
+      "id": "S000000867"
     }
   },
   "test_case_2_multiple_genes": {
     "YPR184W": {
-      "start": "202",
-      "end": "1106",
-      "name": "GLG1",
-      "id": "S000002419",
-      "strand": "-",
-      "seqname": "chrI"
+      "start": "902044",
+      "end": "906654",
+      "name": "GDB1",
+      "id": "S000006388"
     },
     "YLR312C": {
-      "start": "475431",
-      "end": "475999",
-      "name": "RPL26B",
-      "id": "S000004103",
-      "strand": "+",
-      "seqname": "chrXII"
+      "start": "757637",
+      "end": "758833",
+      "name": "YLR312C",
+      "id": "S000004303"
     },
     "YML054C": {
-      "start": "376563",
-      "end": "378230",
-      "name": "CRH1",
-      "id": "S000004560",
-      "strand": "+",
-      "seqname": "chrXIII"
+      "start": "165533",
+      "end": "167308",
+      "name": "CYB2",
+      "id": "S000004518"
     },
     "YBR116C": {
-      "start": "644463",
-      "end": "645684",
-      "name": "VPS55",
-      "id": "S000000590",
-      "strand": "-",
-      "seqname": "chrII"
+      "start": "474199",
+      "end": "474726",
+      "name": "YBR116C",
+      "id": "S000000320"
     },
     "YKL187C": {
-      "start": "671501",
-      "end": "672645",
-      "name": "TIP1",
-      "id": "S000001762",
-      "strand": "+",
-      "seqname": "chrXI"
+      "start": "89284",
+      "end": "91536",
+      "name": "FAT3",
+      "id": "S000001670"
     },
     "YLR267W": {
-      "start": "689485",
-      "end": "691230",
-      "name": "PEP4",
-      "id": "S000004028",
-      "strand": "-",
-      "seqname": "chrXII"
+      "start": "678212",
+      "end": "679924",
+      "name": "BOP2",
+      "id": "S000004257"
     },
     "YEL012W": {
-      "start": "3743",
-      "end": "5559",
-      "name": "GLC3",
-      "id": "S000000100",
-      "strand": "+",
-      "seqname": "chrI"
+      "start": "131772",
+      "end": "132551",
+      "name": "UBC8",
+      "id": "S000000738"
     },
     "YOL084W": {
-      "start": "390370",
-      "end": "392260",
-      "name": "PHM8",
-      "id": "S000005343",
-      "strand": "-",
-      "seqname": "chrXV"
+      "start": "162356",
+      "end": "165331",
+      "name": "PHM7",
+      "id": "S000005444"
     },
     "YJL045W": {
-      "start": "410270",
-      "end": "411542",
-      "name": "SIP4",
-      "id": "S000003635",
-      "strand": "+",
-      "seqname": "chrX"
+      "start": "356024",
+      "end": "357928",
+      "name": "YJL045W",
+      "id": "S000003581"
     },
     "YJR095W": {
-      "start": "666789",
-      "end": "668234",
+      "start": "609773",
+      "end": "610741",
       "name": "SFC1",
-      "id": "S000003869",
-      "strand": "-",
-      "seqname": "chrX"
+      "id": "S000003856"
     }
   },
   "total_genes_found": 10

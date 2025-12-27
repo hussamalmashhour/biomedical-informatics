@@ -29,7 +29,12 @@ from scipy.stats import hypergeom
 
 
 def load_genes(filepath):
-    """Load gene list from file (one gene per line).
+    """Load gene list from file.
+    
+    Handles multiple formats:
+    - One gene per line
+    - Python list literal: ['S000...', 'S000...']
+    - Python set literal: set(['S000...', 'S000...']) or {'S000...', 'S000...'}
     
     Args:
         filepath: path to gene list file
@@ -44,11 +49,23 @@ def load_genes(filepath):
     
     try:
         with open(filepath, 'r') as f:
-            for line in f:
+            content = f.read().strip()
+        
+        # Check if it's a Python set or list literal
+        if (content.startswith('set([') and content.endswith('])')) or \
+           (content.startswith('[') and content.endswith(']')) or \
+           (content.startswith('{') and content.endswith('}')):
+            # Parse Python literal - extract all quoted strings
+            import re
+            quoted = re.findall(r"'([^']+)'", content)
+            return quoted
+        else:
+            # One gene per line format
+            for line in content.split('\n'):
                 gene_id = line.strip()
                 if gene_id and not gene_id.startswith('#'):
                     genes.append(gene_id)
-        return genes
+            return genes
     except Exception as e:
         print(f"Error reading file: {e}")
         return genes
@@ -159,7 +176,7 @@ def parse_gaf(filepath, uids_set, go_map):
 
 
 def enrichmentAll(uids, gids, a, min_count, max_count, go_type, 
-                  obo_file='gene_ontology.obo', gaf_file='gene_association.gaf'):
+                  obo_file='go.obo', gaf_file='gene_association.sgd'):
     """Compute GO enrichment for all terms.
     
     Args:
@@ -227,13 +244,15 @@ def enrichmentAll(uids, gids, a, min_count, max_count, go_type,
         # = 1 - P(X < k)
         # = 1 - P(X <= k-1)
         # = 1 - hypergeom.cdf(k-1, N, M, n)
+        # Or use survival function: hypergeom.sf(k-1, N, M, n) = 1 - CDF(k-1)
         
         if k == 0:
             # No overlap, p-value is 1
             p_value = 1.0
         else:
-            # Use survival function (1 - cdf)
-            p_value = 1.0 - hypergeom.cdf(k - 1, N, M, n)
+            # Use survival function for numerical stability
+            # sf(k-1) = P(X > k-1) = P(X >= k)
+            p_value = hypergeom.sf(k - 1, N, M, n)
         
         # Filter by p-value threshold
         if p_value >= a:

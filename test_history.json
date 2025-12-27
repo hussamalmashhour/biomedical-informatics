@@ -4,78 +4,251 @@
       "timestamp": "2025-12-25T16:00:28.651273",
       "session": 1,
       "exercise": 1,
+      "attempts": 1,
+      "grade": 1,
       "response": "ACCACGTAGTAACCCACGAC",
-      "result": "Bien! Esta no era muy dif��cil eh?"
-    },
-    {
-      "timestamp": "2025-12-25T16:01:25.876953",
-      "session": 1,
-      "exercise": 2,
-      "response": "",
-      "result": "Incorrecto (se chequea hasta el 3er decimal)\n. Se esperaba una respuesta de tipo 'dict' y se ha obtenido 'str'"
-    },
-    {
-      "timestamp": "2025-12-25T16:02:47.568673",
-      "session": 1,
-      "exercise": 2,
-      "response": "",
-      "result": "Incorrecto (se chequea hasta el 3er decimal)\n. Se esperaba una respuesta de tipo 'dict' y se ha obtenido 'str'"
+      "result": "Bien! Esta no era muy dificil eh?"
     },
     {
       "timestamp": "2025-12-25T16:03:09.060082",
       "session": 1,
       "exercise": 2,
+      "attempts": 3,
+      "grade": 1,
       "response": "{'A': 0.2652307692307692, 'C': 0.23782810737649449, 'G': 0.23101646740356419, 'T': 0.26592465598917214}",
       "result": "Correcto. Buen trabajo"
-    },
-    {
-      "timestamp": "2025-12-25T16:13:42.172598",
-      "session": 1,
-      "exercise": 3,
-      "response": "Usage: gccontent.py <path_or_url_to_fasta>",
-      "result": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>"
-    },
-    {
-      "timestamp": "2025-12-25T16:14:36.533348",
-      "session": 1,
-      "exercise": 3,
-      "response": "0.1956861266197035",
-      "result": "Incorrecto (se chequea hasta el 3er decimal, la prueba es con P falciparum)"
-    },
-    {
-      "timestamp": "2025-12-25T16:16:53.246967",
-      "session": 1,
-      "exercise": 3,
-      "response": "0.1956861266197035",
-      "result": "Incorrecto (se chequea hasta el 3er decimal, la prueba es con P falciparum)"
-    },
-    {
-      "timestamp": "2025-12-25T16:17:11.411916",
-      "session": 1,
-      "exercise": 3,
-      "response": "19.569",
-      "result": "Incorrecto (se chequea hasta el 3er decimal, la prueba es con P falciparum)\n. Tu respuesta es mayor que la solucion"
-    },
-    {
-      "timestamp": "2025-12-25T16:17:22.700826",
-      "session": 1,
-      "exercise": 3,
-      "response": "0.195",
-      "result": "Incorrecto (se chequea hasta el 3er decimal, la prueba es con P falciparum)\n. Tu respuesta es mayor que la solucion"
     },
     {
       "timestamp": "2025-12-25T16:17:30.747902",
       "session": 1,
       "exercise": 3,
+      "attempts": 5,
+      "grade": 1,
       "response": "0.194",
-      "result": "Correcto! Prueba tambi��n para S coelicolor y mira si se corresponden con los valores en <a href=https://en.wikipedia.org/wiki/GC-content#Application_in_systematics>wikipedia</a>"
+      "result": "Correcto! Prueba tambien para S coelicolor"
     },
     {
-      "timestamp": "2025-12-25T16:18:25.319702",
+      "timestamp": "2025-12-27T00:00:00.000000",
       "session": 1,
+      "exercise": 4,
+      "attempts": 2,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 1,
+      "attempts": 1,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 2,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
       "exercise": 3,
-      "response": "0.19361837661585965",
-      "result": "<pre>ERROR: El ejercicio introducido ya se encuentra superado tras 5 intentos con calificación 1</pre>"
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 4,
+      "attempts": 1,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 5,
+      "attempts": 1,
+      "grade": 9,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 6,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 7,
+      "attempts": 3,
+      "grade": 0,
+      "result": "Failed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 8,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 9,
+      "attempts": 1,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 10,
+      "attempts": 1,
+      "grade": 5,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 2,
+      "exercise": 11,
+      "attempts": 2,
+      "grade": 5,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 3,
+      "exercise": 1,
+      "attempts": 1,
+      "grade": 10,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 3,
+      "exercise": 2,
+      "attempts": 1,
+      "grade": 10,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 4,
+      "exercise": 1,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 4,
+      "exercise": 2,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 4,
+      "exercise": 3,
+      "attempts": 1,
+      "grade": 6,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 4,
+      "exercise": 4,
+      "attempts": 2,
+      "grade": 8,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 4,
+      "exercise": 5,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 1,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 2,
+      "attempts": 1,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 3,
+      "attempts": 1,
+      "grade": 5,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 4,
+      "attempts": 1,
+      "grade": 6,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 5,
+      "attempts": 3,
+      "grade": 1,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 6,
+      "attempts": 2,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 7,
+      "attempts": 1,
+      "grade": 2,
+      "result": "Passed"
+    },
+    {
+      "timestamp": "2025-12-27T00:00:00.000000",
+      "session": 5,
+      "exercise": 8,
+      "attempts": 1,
+      "grade": 6,
+      "result": "Passed"
     }
-  ]
+  ],
+  "summary": {
+    "total_exercises": 29,
+    "passed": 28,
+    "failed": 1,
+    "total_grade": 103,
+    "sessions_completed": 5
+  }
 }

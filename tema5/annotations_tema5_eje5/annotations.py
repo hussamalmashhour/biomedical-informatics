@@ -101,20 +101,24 @@ def annotations(ids, gff_file='saccharomyces_cerevisiae_R64-2-1_20150113.gff'):
             attrs = parse_attributes(attributes)
             
             # Check if this is one of the genes we're looking for
-            # Match by ID (systematic name)
+            # Match by ID (systematic name) and feature type 'gene'
             gene_id = attrs.get('ID', '')
-            if gene_id in id_set and results[gene_id] is None:
+            if gene_id in id_set and feature == 'gene' and results[gene_id] is None:
                 # Extract annotation details
-                name = attrs.get('Name', attrs.get('gene', gene_id))
-                sgd_id = attrs.get('SGD', '')
+                # Priority: gene field, then Name field, then ID
+                name = attrs.get('gene', attrs.get('Name', gene_id))
+                
+                # Extract SGD ID from dbxref field (format: "SGD:S000000867")
+                dbxref = attrs.get('dbxref', '')
+                sgd_id = ''
+                if 'SGD:' in dbxref:
+                    sgd_id = dbxref.split('SGD:')[1].split(',')[0]
                 
                 results[gene_id] = {
                     'start': start,
                     'end': end,
                     'name': name,
-                    'id': sgd_id,
-                    'strand': strand,
-                    'seqname': seqname
+                    'id': sgd_id
                 }
     
     # Remove entries for genes not found

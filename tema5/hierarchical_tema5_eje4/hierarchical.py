@@ -120,7 +120,7 @@ def print_tree(tree, indent=0, node_id=None):
 
 
 def main():
-    # Test data from specification
+    # Test data from specification (diap. 30)
     E = np.array([
         [10., 8., 10.],
         [10., 0., 9.],
@@ -131,7 +131,7 @@ def main():
         [5., 8.5, 11.],
         [3.7, 8.7, 2.],
         [9.7, 2., 9.],
-        [9.7, 2., 9.]
+        [10.2, 1., 9.2]
     ])
     
     k = 3

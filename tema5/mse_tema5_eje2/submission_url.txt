@@ -1,0 +1,7 @@
+Exercise 2 - Mean Squared Error (MSE)
+======================================================================
+
+Submission URL:
+https://cpg3.der.usal.es/eval/test?session=5&exercise=2&response=8.5&id=Z2256773H
+
+Result: 8.50

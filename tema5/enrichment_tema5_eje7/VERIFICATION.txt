@@ -1,0 +1,75 @@
+EXERCISE 7 - GENE SET ENRICHMENT ANALYSIS - VERIFICATION
+====================================================================
+
+REQUIREMENTS CHECK:
+✓ Function: enrichment(ids, goids, n)
+✓ Input: ids (set of genes), goids (set of genes), n (universe size)
+✓ Output: p-value from Fisher's exact test
+✓ Method: scipy.stats.fisher_exact with alternative="greater"
+✓ Set operations: Intersection, union, difference
+
+EXAMPLE TEST:
+--------------------------------------------------------------------
+Input:
+  ids = set(range(30))         # 30 genes
+  goids = set(range(20, 60))   # 40 genes
+  n = 200
+
+Calculation:
+  a = |ids ∩ goids| = 10
+  b = |goids - ids| = 30
+  c = |ids - goids| = 20
+  d = |neither| = 140
+  
+  Contingency table: [[10, 30], [20, 140]]
+
+Expected Output: 0.046325
+Actual Output:   0.04632518791926587
+✓ MATCH (difference < 0.00001)
+
+PRUEBA (TEST CASE):
+--------------------------------------------------------------------
+Input:
+  ids = dgenes (from dgenes.txt)     # 229 genes
+  goids = GO:0006066 genes           # 5 genes
+    {'S000000056', 'S000000080', 'S000000702', 'S000000826', 'S000004937'}
+  n = 6034
+
+Calculation:
+  a = |dgenes ∩ GO:0006066| = 1   (S000000826)
+  b = |GO:0006066 - dgenes| = 4
+  c = |dgenes - GO:0006066| = 228
+  d = |neither| = 5801
+  
+  Contingency table: [[1, 4], [228, 5801]]
+  Total: 1 + 4 + 228 + 5801 = 6034 ✓
+
+Fisher's Exact Test:
+  Odds Ratio: 6.360746
+  P-value: 0.17594502869220677
+  
+Interpretation:
+  - P-value > 0.05: Not statistically significant
+  - Only 1 out of 229 dgenes is in GO:0006066
+  - 20% of GO:0006066 genes are differentially expressed
+  - Odds ratio > 1 suggests slight enrichment, but not significant
+
+SUBMISSION:
+--------------------------------------------------------------------
+Response: 0.17594502869220677
+URL: https://cpg3.der.usal.es/eval/test?session=5&exercise=7&response=0.17594502869220677&id=Z2256773H
+
+DATA FILES:
+--------------------------------------------------------------------
+✓ dgenes.txt: 229 differentially expressed genes from diauxic shift
+✓ GO:0006066: alcohol metabolic process (5 genes)
+✓ Universe: 6034 genes (from DeRisi expression matrix)
+
+IMPLEMENTATION VERIFICATION:
+--------------------------------------------------------------------
+✓ Set operations correctly implemented
+✓ Contingency table correctly constructed
+✓ Fisher's exact test with alternative="greater"
+✓ Returns only p-value (as required)
+✓ Example test matches expected output
+✓ Test case executed successfully

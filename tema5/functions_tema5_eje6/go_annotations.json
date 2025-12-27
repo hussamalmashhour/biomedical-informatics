@@ -1,42 +1,45 @@
 {
   "test_case_1_single_gene": {
     "S000000867": [
-      "glyoxylate cycle",
-      "metabolic process",
-      "small molecule metabolic process"
+      "glyoxylate cycle"
     ]
   },
   "test_case_2_multiple_genes": {
-    "S000002419": [
-      "phosphorylation"
+    "S000004303": [
+      "nucleophagy",
+      "reticulophagy"
     ],
-    "S000004103": [
-      "protein metabolic process"
+    "S000004257": [
+      "biological_process"
     ],
-    "S000004560": [
-      "Ras protein signal transduction"
+    "S000004518": [
+      "lactate metabolic process"
     ],
-    "S000000590": [
-      "regulation of protein metabolic process"
+    "S000001670": [
+      "long-chain fatty acid transport"
     ],
-    "S000004028": [
-      "protein metabolic process"
+    "S000006388": [
+      "glycogen catabolic process"
     ],
-    "S000000100": [
-      "metabolic process"
+    "S000005444": [
+      "biological_process"
     ],
-    "S000005343": [
-      "small molecule metabolic process"
+    "S000003856": [
+      "fumarate transport",
+      "succinate transport"
     ],
-    "S000003635": [
-      "intracellular signaling cascade"
+    "S000000738": [
+      "negative regulation of gluconeogenesis",
+      "proteasome-mediated ubiquitin-dependent protein catabolic process",
+      "protein ubiquitination involved in ubiquitin-dependent protein catabolic process"
     ],
-    "S000003869": [
-      "hydrogen sulfide biosynthetic process"
-    ]
+    "S000003581": [
+      "cellular respiration"
+    ],
+    "S000000320": []
   },
   "summary": {
-    "genes_with_annotations": 9,
-    "total_unique_terms": 8
+    "genes_with_annotations": 10,
+    "total_unique_terms": 12
   }
 }
