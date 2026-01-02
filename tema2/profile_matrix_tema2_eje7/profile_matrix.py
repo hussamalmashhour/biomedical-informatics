@@ -124,6 +124,9 @@ def main():
         prof = profile(motifs, Laplace=True)
         print(f"Profile for nfkbMotifs.txt ({len(motifs)} motifs, length {len(motifs[0])}) with Laplace=True:")
         print_profile(prof)
+        print()  # Empty line for clarity
+        # Print the raw dictionary as the last line for submission
+        print(prof)
     else:
         print(f"File not found: {nfkb_path}")
 
