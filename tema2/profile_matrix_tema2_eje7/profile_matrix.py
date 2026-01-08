@@ -31,7 +31,8 @@ def read_motifs(path):
     motifs = []
     with open(path, 'r') as f:
         for raw in f:
-            seq = clean_line(raw)
+            # Remove all spaces and convert to uppercase
+            seq = raw.strip().replace(" ", "").upper()
             if not seq:
                 continue
             motifs.append(seq)
@@ -50,34 +51,39 @@ def read_motifs(path):
 
 def profile(Dna, Laplace=True):
     """Build a profile matrix with optional Laplace smoothing."""
-    if not Dna:
-        return {b: [] for b in "ACGT"}
-
-    t = len(Dna)
-    n = len(Dna[0])
-
-    # Validate equal lengths
-    for s in Dna:
-        if len(s) != n:
-            raise ValueError("All strings must have equal length")
-
-    add = 1 if Laplace else 0
-    denom = t + 4 * add
-
-    profile_dict = {b: [] for b in "ACGT"}
-
-    for i in range(n):
-        counts = defaultdict(int)
-        # Initialize with Laplace pseudo-counts if needed
-        if add:
-            for b in "ACGT":
-                counts[b] = add
-        for s in Dna:
-            counts[s[i]] += 1
-        for b in "ACGT":
-            profile_dict[b].append(counts[b] / denom)
-
-    return profile_dict
+    if Dna is None:
+        raise ValueError("Dna no puede ser None")
+    
+    # Clean and validate sequences
+    seqs = [s.strip().upper() for s in Dna if s and s.strip()]
+    if not seqs:
+        return {b: [] for b in ('A', 'C', 'G', 'T')}
+    
+    n = len(seqs[0])
+    if any(len(s) != n for s in seqs):
+        raise ValueError("Todas las cadenas deben tener la misma longitud")
+    
+    # Count nucleotides at each position
+    counts = {b: [0]*n for b in ('A', 'C', 'G', 'T')}
+    
+    for s in seqs:
+        for i, ch in enumerate(s):
+            if ch not in counts:
+                raise ValueError(f"Nucleótido inválido '{ch}' en posición {i}")
+            counts[ch][i] += 1
+    
+    # Calculate probabilities
+    t = len(seqs)
+    denom = (t * 2) if Laplace else t
+    
+    prof = {}
+    for b in ('A', 'C', 'G', 'T'):
+        if Laplace:
+            prof[b] = [(c + 1) / denom for c in counts[b]]
+        else:
+            prof[b] = [c / denom for c in counts[b]]
+    
+    return prof
 
 
 def print_profile(p):
