@@ -1,12 +1,7 @@
 #!/usr/bin/env python3
 """Inverse Burrows–Wheeler Transform (Tema 4 - Ejercicio 3).
-
-Simple O(n log n) implementation using LF-mapping built from ranks and the
-sorted first column. Advanced linear-time approaches exist but are not
-required here.
 """
 
-import os
 from collections import defaultdict
 
 
@@ -75,17 +70,9 @@ def ibwt(bwt_text):
 
 
 def main():
-    bwt_text = "smnpbnnaaaaa$a"  # BWT of "panamabananas$"
+    bwt_text = "smnpbnnaaaaa$a"
     original = ibwt(bwt_text)
-
-    print("BWT input:", bwt_text)
-    print("Reconstructed text:", original)
-
-    out_path = os.path.join(os.path.dirname(__file__), 'original_text.txt')
-    with open(out_path, 'w') as f:
-        f.write(original)
-    print(f"\nWritten reconstructed text to {out_path}")
-
+    
 
 if __name__ == '__main__':
     main()

@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 """Suffix array (Tema 4 - Ejercicio 1).
-
-Simple O(n^2 log n) implementation by sorting all suffixes.
-Advanced linear-time algorithms (e.g., SA-IS) exist but are not required here.
 """
 
 import os
@@ -34,14 +31,8 @@ def main():
 
     print("Text:", text)
     print("Suffix array:", sa)
-    print("\nSorted suffixes (for verification):")
+    print("\nSorted suffixes:")
     printSuffixes(text, sa)
-
-    out_path = os.path.join(os.path.dirname(__file__), 'suffix_array.txt')
-    with open(out_path, 'w') as f:
-        f.write(' '.join(map(str, sa)))
-    print(f"\nWritten suffix array to {out_path}")
-
 
 if __name__ == '__main__':
     main()
